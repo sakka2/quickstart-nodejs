@@ -39,3 +39,7 @@ jobs:
     requires: [ publish-test8 ]
     steps:
       - echo: echo "this is test"
+  publish-test10:
+    requires: [ publish-test9 ]
+    steps:
+      - echo: echo "this is test"
