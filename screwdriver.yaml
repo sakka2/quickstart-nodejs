@@ -23,23 +23,3 @@ jobs:
     requires: [ publish-test2 ]
     steps:
       - echo: echo "this is test"
-  publish-test6:
-    requires: [ publish-test3 ]
-    steps:
-      - echo: echo "this is test"
-  publish-test7:
-    requires: [ publish-test6 ]
-    steps:
-      - echo: echo "this is test"
-  publish-test8:
-    requires: [ publish-test7 ]
-    steps:
-      - echo: echo "this is test"
-  publish-test9:
-    requires: [ publish-test8 ]
-    steps:
-      - echo: echo "this is test"
-  publish-test10:
-    requires: [ publish-test9 ]
-    steps:
-      - echo: echo "this is test"
