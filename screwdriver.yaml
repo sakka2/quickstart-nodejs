@@ -13,8 +13,12 @@ jobs:
     requires: [ main ]
     steps:
       - echo: echo "this is test"
+  publish-test2:
+    requires: [ main ]
+    steps:
+      - echo: echo "this is test"
   publish:
-    requires: [ publish-test ]
+    requires: [ publish-test2 ]
     steps:
       - set_access: npm config set access public > /dev/null 2>&1
       - set_token: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN > /dev/null 2>&1
