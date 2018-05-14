@@ -11,6 +11,8 @@ jobs:
       - test: npm test
   publish-test:
     requires: [ main ]
+    annotations:
+      beta.screwdriver.cd/timeout: 10000000000000000000000
     steps:
       - echo: echo "this is test"
   publish-test2:
