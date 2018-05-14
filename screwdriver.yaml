@@ -17,11 +17,7 @@ jobs:
     requires: [ publish-test ]
     steps:
       - echo: echo "this is test"
-  publish:
+  publish-test3:
     requires: [ publish-test2 ]
     steps:
-      - set_access: npm config set access public > /dev/null 2>&1
-      - set_token: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN > /dev/null 2>&1
-      - publish_npm: npm publish
-    secrets:
-      - NPM_TOKEN
+      - echo: echo "this is test"
