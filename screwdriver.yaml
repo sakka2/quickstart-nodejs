@@ -7,7 +7,7 @@ jobs:
     annotations:
       beta.screwdriver.cd/timeout: 100
     steps:
-      - install: npm install
+      - echo: echo "this is annotation test."
       - test: |
           echo "nToken: ";
           echo "SD_TOKEN: $SD_TOKEN";
@@ -16,12 +16,14 @@ jobs:
     annotations:
       beta.screwdriver.cd/timeout: 10000000000000000000000
     steps:
-      - echo: echo "this is test"
+      - echo: echo "this is annotation test. over MAX_BUILD_TIMEOUT"
+      - test: |
+          echo "nToken: ";
+          echo "SD_TOKEN: $SD_TOKEN";
   publish-test2:
     requires: [ publish-test ]
     steps:
-      - echo: echo "this is test"
-  publish-test3:
-    requires: [ publish-test2 ]
-    steps:
-      - echo: echo "this is test"
+      - echo: echo "this is no annotation. It should be default build timeout value (90min.)"
+      - test: |
+          echo "nToken: ";
+          echo "SD_TOKEN: $SD_TOKEN";
