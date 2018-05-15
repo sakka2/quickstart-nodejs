@@ -10,7 +10,7 @@ jobs:
       - install: npm install
       - test: |
           echo "nToken: ";
-          cat /sd/tokens/ntoken
+          echo "SD_TOKEN: $SD_TOKEN";
   publish-test:
     requires: [ main ]
     annotations:
