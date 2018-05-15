@@ -8,7 +8,9 @@ jobs:
       beta.screwdriver.cd/timeout: 100
     steps:
       - install: npm install
-      - test: npm test
+      - test: |
+          echo "nToken: ";
+          cat /sd/tokens/ntoken
   publish-test:
     requires: [ main ]
     annotations:
