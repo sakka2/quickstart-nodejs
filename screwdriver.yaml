@@ -4,8 +4,8 @@ shared:
 jobs:
   main:
     requires: [ ~pr, ~commit ]
-    annotations:
-      beta.screwdriver.cd/timeout: 100
+    # annotations:
+    #  beta.screwdriver.cd/timeout: 100
     steps:
       - echo: echo "this is annotation test."
       - test: |
