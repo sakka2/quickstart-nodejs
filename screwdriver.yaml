@@ -2,28 +2,28 @@ shared:
   image: node:6
 
 jobs:
-  main:
+  test-case1:
     requires: [ ~pr, ~commit ]
-    # annotations:
-    #  beta.screwdriver.cd/timeout: 100
+    annotations:
+      beta.screwdriver.cd/timeout: 100
     steps:
-      - echo: echo "this is annotation test."
       - test: |
+          echo "this is annotation test."
           echo "nToken: ";
           echo "SD_TOKEN: $SD_TOKEN";
-  publish-test:
-    requires: [ main ]
+  test-case2:
+    requires: [ test-case1 ]
     annotations:
       beta.screwdriver.cd/timeout: 10000000000000000000000
     steps:
-      - echo: echo "this is annotation test. over MAX_BUILD_TIMEOUT"
       - test: |
+          echo "this is annotation test. over MAX_BUILD_TIMEOUT"
           echo "nToken: ";
           echo "SD_TOKEN: $SD_TOKEN";
-  publish-test2:
-    requires: [ publish-test ]
+  test-case3:
+    requires: [ test-case2 ]
     steps:
-      - echo: echo "this is no annotation. It should be default build timeout value (90min.)"
       - test: |
+          echo "this is no annotation. It should be default build timeout value (90min.)"
           echo "nToken: ";
           echo "SD_TOKEN: $SD_TOKEN";
