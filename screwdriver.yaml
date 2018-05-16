@@ -27,3 +27,12 @@ jobs:
           echo "this is no annotation. It should be default build timeout value (90min.)"
           echo "nToken: ";
           echo "SD_TOKEN: $SD_TOKEN";
+  test-case4:
+    requires: [ test-case3 ]
+    annotations:
+      beta.screwdriver.cd/timeout: 'aaa'
+    steps:
+      - test: |
+          echo "this is invalid annotation."
+          echo "nToken: ";
+          echo "SD_TOKEN: $SD_TOKEN";
