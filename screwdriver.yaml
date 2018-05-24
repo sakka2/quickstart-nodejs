@@ -4,6 +4,8 @@ shared:
 jobs:
   test-case1:
     requires: [ ~pr, ~commit ]
+    annotations:
+      beta.screwdriver.cd/timeout: aaa
     steps:
       - test: |
           echo "this is annotation test."
