@@ -1,7 +1,7 @@
 shared:
   image: node:6
   secrets:
-    - SOURCE_CLEAR
+    - SOURCE_CLEAR_TOKEN
 jobs:
   test-case1:
     requires: [ ~pr, ~commit ]
